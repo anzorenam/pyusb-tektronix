@@ -73,14 +73,14 @@ def barprog(percs,npercs):
   sys.stdout.flush()
 
 parser=argparse.ArgumentParser()
-parser.add_argument('nwav', help='numero de capturas',type=int)
+parser.add_argument('nwav', help='capture number',type=int)
 args=parser.parse_args()
 nwav=args.nwav
 
 home=os.environ['HOME']
-ruta='{0}/proyectos/scicrt/'.format(home)
+ruta='{0}/data'.format(home)
 fecha=time.strftime('%y%m%d')
-name='{0}{1}.adc1'.format(ruta,fecha)
+name='{0}{1}.dat1'.format(ruta,fecha)
 
 if os.path.exists(name) == False:
   fdat=open(name,'w')
@@ -96,7 +96,7 @@ wavenum=0
 
 tekcq(tek,':head off')
 tekcq(tek,':verb off')
-tekcq(tek,':dat:sou ch2')
+tekcq(tek,':dat:sou ch1')
 tekcq(tek,':dat:enc fas')
 tekcq(tek,':wfmo:byt_n 1')
 tekcq(tek,':dat:comp composite_yt')
@@ -137,7 +137,7 @@ while wavenum < nwav:
 
 sys.stdout.write('\n')
 t1=time.time()
-print u'Adquisición completa en: {0} hrs.'.format(str(datetime.timedelta(seconds=(t1-t0)))[0:7])
+print u'Data capture finished in: {0} hours.'.format(str(datetime.timedelta(seconds=(t1-t0)))[0:7])
 fdat.close()
 usbt.release_interface(tek,0)
 tek.attach_kernel_driver(0)
