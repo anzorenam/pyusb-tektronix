@@ -73,7 +73,7 @@ def barprog(percs,npercs):
   sys.stdout.flush()
 
 parser=argparse.ArgumentParser()
-parser.add_argument('nwav', help='capture number',type=int)
+parser.add_argument('nwav', help='number of captures',type=int)
 args=parser.parse_args()
 nwav=args.nwav
 
