@@ -137,7 +137,7 @@ while wavenum < nwav:
 
 sys.stdout.write('\n')
 t1=time.time()
-print u'Data capture finished in: {0} hours.'.format(str(datetime.timedelta(seconds=(t1-t0)))[0:7])
+print u'Acquisition completed in: {0} hours.'.format(str(datetime.timedelta(seconds=(t1-t0)))[0:7])
 fdat.close()
 usbt.release_interface(tek,0)
 tek.attach_kernel_driver(0)
